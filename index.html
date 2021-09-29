@@ -30,6 +30,7 @@
         <div class="header__center">
           <h1 class="title-h1">Акация Парк</h1>
           <p class="text-p">Элитный коттеджный посёлок  в средиземноморском стиле</p><a class="button_green" href="#info"><span>УЗНАТЬ ПОДРОБНЕЕ</span></a>
+          <button class="button_border_green js--modal-phone" type="button"><span>Заказать звонок </span></button>
         </div>
         <div class="header__bottom">
           <div class="item">
@@ -50,9 +51,15 @@
     <section class="section_card scrollby animate-sect" id="info">
       <div class="container">
         <div class="section_header"><span>О ПРОЕКТЕ</span>
-          <h2 class="title-h2">2.5 га земли для строительства 12 коттеджей<br> в элитном поселке «Акация Парк»</h2>
+          <h2 class="title-h2">2.5 га земли для строительства 12 коттеджей<br> в элитном поселке «Акация Парк»</h2><svg width="50" height="2" viewBox="0 0 50 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 1H44M47 1H50" stroke="#62AF55"/>
+</svg>
         </div>
-        <div class="section_card__image"><img class="lazyload" data-src="img/section2/image.jpg" src="#" alt="image"></div>
+        <div class="section_card__image">
+          <picture>
+            <source class="lazyload" data-srcset="img/section2/image_smart.jpg" srcset="src" media="(max-width: 540px"><img class="lazyload" data-src="img/section2/image.jpg" src="#" alt="image">
+          </picture>
+        </div>
         <div class="section_card__items">
           <div class="swiper">
             <div class="swiper-wrapper">
@@ -133,6 +140,7 @@
             </div>
           </div>
         </div>
+        <div class="bullet_slide"></div>
       </div>
     </section>
     <section class="advantages scrollby animate-sect" id="advantages">
@@ -144,7 +152,7 @@
         </div>
         <div class="advantages__right">
           <div class="advantages__right_wrap">
-            <div class="advantages__right_count"><span class="count">01</span></div>
+            <div class="advantages__right_count"><span class="count"></span></div>
             <div class="advantages__right_title">
               <h2 class="title-h2">Преимущества</h2><svg width="50" height="2" viewBox="0 0 50 2" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 1H44M47 1H50" stroke="#62AF55"/>
@@ -234,7 +242,7 @@
             <p class="text-p">Хорошая транспортная доступность обеспечивает высокое качество жизни и востребованность жилья такого уровня.</p>
           </li>
         </ul>
-        <button class="button_green js--modal-phone" type="button"><span>ОСТАВИТЬ ЗАЯВКУ</span></button>
+        <button class="button_green js--modal-phone" type="button"><span>ОСТАВИТЬ ЗАЯВКУ</span></button><img class="lazyload image_smart" data-src="img/section4/right_bg_smart.png" src="#" alt="image">
       </div>
     </section>
     <div class="info__bottom scrollby" id="location">
@@ -249,7 +257,7 @@
     </div>
     <div class="map animate-sect">
       <picture>
-        <source class="lazyload" data-srcset="img/section4/map_smart.jpg" srcset="src" media="(max-width: 540px"><img class="lazyload" data-src="img/section4/map.jpg" src="#" alt="image">
+        <source class="lazyload" data-srcset="img/section4/map_smart.jpg" srcset="#" media="(max-width: 768px"><img class="lazyload" data-src="img/section4/map.jpg" src="#" alt="image">
       </picture>
       <div class="container">
         <div class="map__item"><svg width="41" height="55" viewBox="0 0 41 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -261,7 +269,7 @@
       </div>
     </div>
     <section class="diving">
-      <div class="container">
+      <div class="container top">
         <div class="section_header">
           <h2 class="title-h2">Окружение</h2><svg width="50" height="2" viewBox="0 0 50 2" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0 1H44M47 1H50" stroke="#62AF55"/>
@@ -270,7 +278,7 @@
         </div>
       </div>
       <div class="diving__control container">
-        <div class="slider_bullet"></div>
+        <div class="bullet_slide"></div>
         <button class="button_slide_prev" type="button"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14 7H1M1 7L7 1M1 7L7 13" stroke="white"/>
 </svg>
@@ -281,7 +289,14 @@
         </button>
       </div>
       <div class="grid_slider">
-        <div class="buffer"></div>
+        <div class="buffer">
+          <div class="slider_bullet">
+            <button class="item active" type="button">01</button>
+            <button class="item" type="button">02</button>
+            <button class="item" type="button">03</button>
+            <button class="item" type="button">04</button>
+          </div>
+        </div>
         <div class="slider">
           <div class="swiper">
             <div class="swiper-wrapper">
@@ -335,7 +350,10 @@
           <p class="text-p">Коттеджный поселок включает в себя 12 домов, выполненных в средиземноморском стиле, окруженный прекрасными природными ландшафтами.</p>
         </div>
       </div>
-      <div class="home__map"><img class="lazyload" data-src="img/section5/map_home.jpg" src="#" alt="image">
+      <div class="home__map">
+        <picture>
+          <source class="lazyload" data-srcset="img/section5/map_home_smart.jpg" srcset="#" media="(max-width: 540px"><img class="lazyload" data-src="img/section5/map_home.jpg" src="#" alt="image">
+        </picture>
         <div class="home__map_item item1"><svg width="44" height="54" viewBox="0 0 44 54" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M43.2475 21.8203C43.2475 38.7917 21.6238 53.3386 21.6238 53.3386C21.6238 53.3386 0 38.7917 0 21.8203C8.54578e-08 16.0332 2.27821 10.4831 6.33345 6.39103C10.3887 2.29892 15.8888 0 21.6238 0C27.3587 0 32.8588 2.29892 36.9141 6.39103C40.9693 10.4831 43.2475 16.0332 43.2475 21.8203Z" fill="#523D93"/>
 </svg><span>1</span>
@@ -571,10 +589,7 @@
             <li><a href="#gallery">ГАЛЕРЕЯ</a></li>
             <li><a href="#contact">КОНТАКТЫ</a></li>
           </ul>
-        </nav><a class="slide_menu__phone" href="tel:89882392220"><svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M4 11.9998C3.86739 11.9998 3.74021 12.0523 3.64645 12.146C3.55268 12.2396 3.5 12.3666 3.5 12.499C3.5 12.6313 3.55268 12.7583 3.64645 12.8519C3.74021 12.9456 3.86739 12.9982 4 12.9982H6C6.13261 12.9982 6.25979 12.9456 6.35355 12.8519C6.44732 12.7583 6.5 12.6313 6.5 12.499C6.5 12.3666 6.44732 12.2396 6.35355 12.146C6.25979 12.0523 6.13261 11.9998 6 11.9998H4Z"/>
-<path d="M2 0C1.46957 0 0.960859 0.210714 0.585786 0.585786C0.210714 0.960859 0 1.46957 0 2V14C0 14.5304 0.210714 15.0391 0.585786 15.4142C0.960859 15.7893 1.46957 16 2 16H8C8.53043 16 9.03914 15.7893 9.41421 15.4142C9.78929 15.0391 10 14.5304 10 14V2C10 1.46957 9.78929 0.960859 9.41421 0.585786C9.03914 0.210714 8.53043 0 8 0H2ZM1 2C1 1.73478 1.10536 1.48043 1.29289 1.29289C1.48043 1.10536 1.73478 1 2 1H8C8.26522 1 8.51957 1.10536 8.70711 1.29289C8.89464 1.48043 9 1.73478 9 2V14C9 14.2652 8.89464 14.5196 8.70711 14.7071C8.51957 14.8946 8.26522 15 8 15H2C1.73478 15 1.48043 14.8946 1.29289 14.7071C1.10536 14.5196 1 14.2652 1 14V2Z"/>
-</svg><span>8 (988) 239-22-20</span></a>
+        </nav>
       </div>
     </div>
     <div class="modal_overlay modal_phone" id="modal_phone" style="display: none">
@@ -583,7 +598,11 @@
 <path d="M2 2L28 28M28 2L2 28" stroke-width="3" stroke-linecap="round"/>
 </svg>
         </button>
+        <div class="logo_smart"><img class="lazyload" data-src="img/logo.svg" src="#" alt="image"></div>
         <h4 class="title-h2">Оставьте заявку</h4>
+        <div class="text_smart">
+          <p>Заполните форму и наш специалист свяжется с вами.</p>
+        </div>
         <form class="form js_form" action="/">
           <div class="field-set">
             <div class="icon"><svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -601,7 +620,7 @@
             <input class="field mask--phone js_phone" type="tel" name="phone" placeholder="+7 (___) ___ - __ - __">
           </div>
           <div class="field-button">
-            <button class="button_green" type="submit"><span>ОТПРАВИТЬ</span></button><span>Нажимая на кнопку, вы соглашаетесь на обработку персональных данных</span>
+            <button class="button_green" type="submit"><span class="first">ОТПРАВИТЬ</span><span class="last">ОСТАВИТЬ ЗАЯВКУ</span></button><span>Нажимая на кнопку, вы соглашаетесь на обработку персональных данных</span>
           </div>
         </form>
       </div>

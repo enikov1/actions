@@ -92,6 +92,7 @@ modal_button_active_phone.forEach(e => {
 		event.preventDefault()
 
 		// modal_phone.classList.add('active')
+		document.body.classList.add('overflow-hidden')
 		fadeIn(modal_phone, 500, 'flex');
 	})
 })
@@ -101,7 +102,7 @@ modal_close.forEach(e => {
 		event.preventDefault()
 
 		// e.closest('.modal_overlay').classList.remove('active')
-
+		document.body.classList.remove('overflow-hidden')
 		fadeOut(e.closest('.modal_overlay'), 500);
 	})
 })
@@ -314,22 +315,22 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
     })
 })
 
-// lightGallery(document.getElementById('lightgallery'), {
-//         plugins: [lgZoom],
-//         // licenseKey: 'your_license_key',
-//         speed: 500,
-// 		// counter: false,
-// 		captions: false,
-// 		download: false,
+lightGallery(document.getElementById('lightgallery'), {
+        plugins: [lgZoom],
+        // licenseKey: 'your_license_key',
+        speed: 500,
+		// counter: false,
+		captions: false,
+		download: false,
 
-// 		mobileSettings: {
-// 			showCloseIcon: true,
-// 		}
-// 		// enableSwipe: false,
-// 		// enableDrag: false,
-// 		// pager: false,
-// 		// controls: false,
-// })
+		mobileSettings: {
+			showCloseIcon: true,
+		}
+		// enableSwipe: false,
+		// enableDrag: false,
+		// pager: false,
+		// controls: false,
+})
 
 const advantages_wrap = document.querySelector('#advantages')
 const advantages_wrap_slider = new Swiper(advantages_wrap.querySelector('.swiper'), {
@@ -365,7 +366,7 @@ const advantages_wrap_slider = new Swiper(advantages_wrap.querySelector('.swiper
 })
 
 const diving_wrap = document.querySelector('.diving')
-const nav_item = diving_wrap.querySelectorAll('.buffer .item')
+const nav_item = diving_wrap.querySelectorAll('.slider_bullet')
 
 const diving_wrap_slider = new Swiper(diving_wrap.querySelector('.swiper'), {
 	loop: true,
@@ -389,21 +390,33 @@ const diving_wrap_slider = new Swiper(diving_wrap.querySelector('.swiper'), {
 	on: {
 
 		activeIndexChange: function () {
-			for (let item of nav_item[this.realIndex].parentNode.children) {
-				item.classList.remove('active')
-			}
-			nav_item[this.realIndex].classList.add('active')
+			
+			nav_item.forEach(e => {
+				const ind = e.querySelectorAll('.item')
+
+				// ind.forEach(items => {
+					for (let item of ind[this.realIndex].parentNode.children) {
+						item.classList.remove('active')
+					}
+					ind[this.realIndex].classList.add('active')
+				// })
+			})
+
+			// for (let item of nav_item[this.realIndex].parentNode.children) {
+			// 	item.classList.remove('active')
+			// }
+			// nav_item[this.realIndex].classList.add('active')
 		}
 	},
 
 	breakpoints: {
 		1440: {
-			slidesPerView: 1.4,
+			slidesPerView: 1.2,
 			// spaceBetween: 180,
 		},
 
 		1280: {
-			slidesPerView: 1.2,
+			slidesPerView: 1.1,
 			spaceBetween: 180,
 		},
 
@@ -429,18 +442,25 @@ const diving_wrap_slider = new Swiper(diving_wrap.querySelector('.swiper'), {
 
 
 
-nav_item.forEach((e,i) => {
-	e.addEventListener('click', function(event) {
-		event.preventDefault()
+nav_item.forEach(e => {
 
-		for (let item of e.parentNode.children) {
-			item.classList.remove('active')
-		}
+	const ind = e.querySelectorAll('.item')
 
-		this.classList.add('active')
+	ind.forEach((items, i) => {
+		items.addEventListener('click', function (event) {
+			event.preventDefault()
 
-		diving_wrap_slider.slideTo(i+1)
+			for (let item of items.parentNode.children) {
+				item.classList.remove('active')
+			}
+
+			this.classList.add('active')
+			console.log(i)
+			diving_wrap_slider.slideTo(i + 2)
+		})
 	})
+
+	
 })
 
 const layouts_wrap = document.querySelector('.layouts')

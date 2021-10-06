@@ -19,35 +19,35 @@ const fadeOut = (el, timeout) => {
 }
 
 
-// const onScrollHeader = () => {
+const onScrollHeader = () => {
 
-//  	const header = document.querySelector('.header__top')
+ 	const header = document.querySelector('.header__top')
 
-//  	let currentScroll;
+ 	let currentScroll;
 
-// 	currentScroll = window.pageYOffset;
+	currentScroll = window.pageYOffset;
 	
-// 	if (currentScroll > 110) {
-//  		header.classList.add('header-fixed')
-//  	}
-//  	if (currentScroll < 110) {
-//  		header.classList.remove('header-fixed')
-//  	}
+	if (currentScroll > 110) {
+ 		header.classList.add('header-fixed')
+ 	}
+ 	if (currentScroll < 110) {
+ 		header.classList.remove('header-fixed')
+ 	}
 
-//  	window.addEventListener('scroll', () => {
+ 	window.addEventListener('scroll', () => {
 
-//  		currentScroll = window.pageYOffset;
+ 		currentScroll = window.pageYOffset;
 
-//  		if (currentScroll > 110) {
-//  			header.classList.add('header-fixed')
-//  		}
-//  		if (currentScroll < 110) {
-//  			header.classList.remove('header-fixed')
-//  		}
+ 		if (currentScroll > 110) {
+ 			header.classList.add('header-fixed')
+ 		}
+ 		if (currentScroll < 110) {
+ 			header.classList.remove('header-fixed')
+ 		}
 
-//  	});
+ 	});
 
-// }
+}
 
 const headerBurger = () => {
 	const burger_button = document.querySelector('.header__top_burger')
@@ -306,7 +306,7 @@ document.querySelectorAll('a[href^="#"').forEach(link => {
         const elementPosition = scrollTarget.getBoundingClientRect().top
 
 		topOffset = header_top_height
-        const offsetPosition = elementPosition
+        const offsetPosition = elementPosition - topOffset
 
         window.scrollBy({
             top: offsetPosition,
@@ -548,40 +548,144 @@ const gallery_wrap_slider = new Swiper(gallery_wrap.querySelector('.swiper'), {
 	}
 })
 
-const section_card_wrap = document.querySelector('.section_card')
-const section_card_wrap_slider = new Swiper(section_card_wrap.querySelector('.swiper'), {
+// const section_card_wrap = document.querySelector('.section_card')
+// const section_card_wrap_slider = new Swiper(section_card_wrap.querySelector('.swiper'), {
 
 
-	// centeredSlides: true,
-	// centeredSlidesBounds: true,
+// 	// centeredSlides: true,
+// 	// centeredSlidesBounds: true,
 
-	observer: true,
-	observeParents: true,
+// 	observer: true,
+// 	observeParents: true,
 
-	pagination: {
-		el: section_card_wrap.querySelector('.bullet_slide'),
-		clickable: true
-	},
+// 	pagination: {
+// 		el: section_card_wrap.querySelector('.bullet_slide'),
+// 		clickable: true
+// 	},
 
-	breakpoints: {
-		0: {
-			loop: true,
-			slidesPerView: 1,
-			spaceBetween: 25,
+// 	breakpoints: {
+// 		0: {
+// 			loop: true,
+// 			slidesPerView: 1,
+// 			spaceBetween: 25,
+// 		},
+
+// 		768: {
+// 			loop: false,
+// 			slidesPerView: 'auto',
+// 			onlyExternal: true,
+// 			noSwiping: true,
+// 			allowTouchMove: false,
+// 		}
+// 	}
+// })
+
+
+// section_card_2
+
+const section_card_2_wrap = document.querySelector('.section_card_2')
+
+if(section_card_2_wrap) {
+	const slider_desctop = section_card_2_wrap.querySelector('.slider_desctop')
+	const slider_mobile = section_card_2_wrap.querySelector('.slider_mobile')
+
+	const slider_right_desktop = section_card_2_wrap.querySelector('.slider_right__desktop')
+	const slider_right_mobile = section_card_2_wrap.querySelector('.slider_right__mobile')
+
+	const section_card_wrap_slider2 = new Swiper(slider_desctop, {
+
+
+		slidesPerView: 1,
+		spaceBetween: 25,
+
+		observer: true,
+		observeParents: true,
+
+		navigation: {
+			nextEl: slider_right_desktop.querySelector('.nav_next'),
+			prevEl: slider_right_desktop.querySelector('.nav_prev'),
 		},
 
-		768: {
-			loop: false,
-			slidesPerView: 'auto',
-			onlyExternal: true,
-			noSwiping: true,
-			allowTouchMove: false,
+		on: {
+			init: function () {
+				// console.log(this)
+				slider_right_desktop.querySelector('.nav__count .first').innerHTML = this.realIndex + 1
+				slider_right_desktop.querySelector('.nav__count .last').innerHTML = this.snapGrid.length
+			},
+			activeIndexChange: function () {
+				slider_right_desktop.querySelector('.nav__count .first').innerHTML = this.realIndex + 1
+				slider_right_desktop.querySelector('.nav__count .last').innerHTML = this.snapGrid.length
+			}
 		}
-	}
-})
+	})
+
+	const section_card_wrap_slider3 = new Swiper(slider_mobile, {
 
 
-// onScrollHeader()
+		slidesPerView: 1,
+		spaceBetween: 25,
+
+		observer: true,
+		observeParents: true,
+
+		navigation: {
+			nextEl: slider_right_mobile.querySelector('.nav_next'),
+			prevEl: slider_right_mobile.querySelector('.nav_prev'),
+		},
+
+		on: {
+			init: function () {
+				// console.log(this)
+				slider_right_mobile.querySelector('.nav__count .first').innerHTML = this.realIndex + 1
+				slider_right_mobile.querySelector('.nav__count .last').innerHTML = this.snapGrid.length
+			},
+
+			activeIndexChange: function () {
+				slider_right_mobile.querySelector('.nav__count .first').innerHTML = this.realIndex + 1
+				slider_right_mobile.querySelector('.nav__count .last').innerHTML = this.snapGrid.length
+			}
+		}
+	})
+}
+
+const home_map_control = document.querySelectorAll('.home_map__control .item__button')
+
+if (home_map_control) {
+	home_map_control.forEach(e => {
+		e.addEventListener('click', function(event) {
+			event.preventDefault()
+
+			const parent = e.closest('.item')
+			const targetMapItem = parent.classList.contains('active')
+
+			for (let item of parent.parentNode.children) {
+				if (targetMapItem === false) item.classList.remove('active')
+			}
+
+			parent.classList.toggle('active')
+		})
+	})
+}
+
+const map_item = document.querySelectorAll('.map .item')
+
+if(map_item) {
+	map_item.forEach(e => {
+		e.addEventListener('click', function(event) {
+			event.preventDefault()
+
+			const targetMapItem = e.classList.contains('active')
+
+			for (let item of e.parentNode.children) {
+				if (targetMapItem === false) item.classList.remove('active')
+			}
+
+			e.classList.toggle('active')
+		})
+	})
+}
+
+onScrollHeader()
 
 headerBurger()
 maskInit()

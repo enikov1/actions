@@ -518,7 +518,6 @@ body {
 }
 
 .header__top.header-fixed {
-  background-color: rgba(255, 255, 255, 0.9);
   height: 6.25rem;
   padding-top: 0;
   z-index: 14;
@@ -559,6 +558,12 @@ body {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 15.4375rem;
+}
+
+@media (max-width: 767px) {
+  .header__center {
+    padding-top: 10rem;
+  }
 }
 
 @media (max-width: 540px) {
@@ -2526,7 +2531,7 @@ body {
   margin-left: -4.375rem;
   width: 21.6875rem;
   background-color: var(--c-green);
-  padding: 1.25rem 1.875rem;
+  padding: 1.25rem 1.875rem 1.875rem 1.25rem;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2536,13 +2541,17 @@ body {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: var(--transition);
+  -o-transition: var(--transition);
+  transition: var(--transition);
 }
 
 @media (max-width: 540px) {
   .home_map__control .item__content {
     width: 13.375rem;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1rem 1.25rem 1rem;
   }
 }
 
@@ -2623,7 +2632,8 @@ body {
 }
 
 .home_map__control .item.active .item__content {
-  visibility: visible;
+  opacity: 1;
+  pointer-events: visible;
 }
 
 .home_map__control .item.active .item__button > span {
@@ -3443,11 +3453,11 @@ body {
 }
 
 .map .item.active {
-  z-index: 2;
+  z-index: 4;
 }
 
 .map .item.active .item__circl {
-  z-index: 2;
+  z-index: 4;
   width: 1.125rem;
   height: 1.125rem;
 }
@@ -3463,6 +3473,7 @@ body {
 .map .item.active .item__content {
   opacity: 1;
   pointer-events: visible;
+  z-index: 3;
 }
 
 .map .item1 {
@@ -3868,7 +3879,7 @@ body {
 }
 
 .diving__control .bullet_slide .swiper-pagination-bullet-active {
-  background-color: var(--c-blue) !important;
+  background-color: var(--c-green) !important;
 }
 
 .diving__control .slider_bullet {
@@ -4039,16 +4050,28 @@ body {
 }
 
 .diving__item_right .title {
-  color: var(--c-green);
   font-size: 1.3125rem;
   line-height: 150%;
   font-family: var(--f-prata);
   margin-bottom: 1rem;
 }
 
+@media (max-width: 767px) {
+  .diving__item_right .title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5625rem;
+  }
+}
+
 .diving__item_right .text-p {
   font-size: 1.125rem;
   line-height: 130%;
+}
+
+@media (max-width: 767px) {
+  .diving__item_right .text-p {
+    font-size: 0.875rem;
+  }
 }
 
 .home .section_header {
